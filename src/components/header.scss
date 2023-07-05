@@ -1,11 +1,75 @@
 #header {
   background-color: white;
   height: 56px;
-  padding: 0 10px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logo {
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.menuButtonDiv {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuButton {
+  height: 100%;
+}
+.logoImageDiv {
+  height: 40%;
 }
 .logoImage {
   height: 100%;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65%;
+}
+.searchBarDiv {
+  border-radius: 20px 0 0 20px; 
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  height: 100%; 
+}
+.searchBarInput {
+  width: 520px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+.searchBarInput:focus {
+  border: 0;
+  outline: 0;
+}
+.searchIcon {
+  width: 44px;
+}
+.searchBarButton {
+  width: 70px;
+  border: 1px solid black;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+}
+.loggedOut {
+  width: 200px;
 }
