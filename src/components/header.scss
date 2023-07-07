@@ -71,21 +71,26 @@
   align-items: center;
   background-color: rgb(245, 245, 245);
 }
+.searchBarButton:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
 .searchButton {
   width: 30px;
 }
-.loggedOut {
+.loggedOutDiv {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
   border: 1px solid #DEF1FF;
-  padding: 0 12px;
+  padding: 4px 12px;
   border-radius: 20px;
   height: 60%;
 }
-.loggedOut:hover {
+.loggedOutDiv:hover {
   background-color: #DEF1FF;
+  cursor: pointer;
 }
 .loggedOutIconDiv, .loggedOutText {
   display: flex;
@@ -112,4 +117,15 @@
 }
 .voice {
   width: 22px;
+}
+.loggedOut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+} 
+.loggedOutInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
