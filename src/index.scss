@@ -1,5 +1,205 @@
-body {
+body,html {
   background-color: black;
   padding: 0;
   margin: 0;
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#content {
+  flex: 1 1 auto;
+}
+#header {
+  background-color: white;
+  height: 56px;
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+$roboto: 'Roboto', sans-serif;
+$searchBorder: rgb(212,212,212);
+
+.logo {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.menuButtonDiv {
+  height: 53%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuButton {
+  height: 100%;
+}
+.logoImageDiv {
+  height: 36%;
+}
+.logoImage {
+  height: 100%;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65%;
+}
+.searchBarInput {
+  border: 0;
+  border-radius: 20px 0 0 20px;
+  width: 520px;
+  flex: 1;
+  height: 100%;
+  padding: 0;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 16px;
+  font-family: $roboto;
+  position: relative;
+  border: solid $searchBorder;
+  border-width: 1px 0 1px 1px;
+}
+.searchBarInput:focus {
+  border: 1px solid gray;
+  box-shadow: 0px 0px 1px 1px #065FD7;;
+  outline: 0;
+}
+.searchBarButton {
+  width: 60px;
+  border: 1px solid $searchBorder;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+}
+.searchBarButton:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
+.searchButton {
+  width: 30px;
+}
+.loggedOutDiv {
+  gap: 6px;
+  border: 1px solid $searchBorder;
+  padding: 4px 10px;
+  border-radius: 20px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.loggedOutDiv:hover {
+  background-color: #DEF1FF;
+  cursor: pointer;
+}
+.loggedOutIconDiv, .loggedOutText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loggedOutIconDiv {
+  width: 24px;
+  filter: invert(31%) sepia(100%) saturate(1361%) hue-rotate(197deg) brightness(82%) contrast(107%);
+}
+.loggedOutText {
+  font-size: 14px;
+  font-family: $roboto;
+  font-weight: 500;
+  color: #065FD7;
+}
+.loggedOutIcon {
+  width: 100%;
+}
+.searchVoice {
+  width: 40px;
+  display: flex;
+  align-items: center;
+}
+.voice {
+  width: 22px;
+}
+.loggedOut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 16px;
+} 
+.loggedOutInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#nav {
+  width: 240px;
+  background-color: white;
+  height: 100%;
+  font-family: $roboto;
+  box-sizing: border-box;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 100,
+  'opsz' 24,
+}
+.navElement {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 40px;
+  gap: 24px;
+}
+.navElementIconDiv {
+  width: 24px;
+  height: 24px;
+}
+.navElementTitle {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.navBlock {
+  padding: 12px;
+}
+hr {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: 1px;
+  background-color: #cfcfcf;
+}
+.navNotLogged {
+  display: grid;
+  justify-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  padding: 16px 32px;
+}
+.navNotLoggedText {
+  line-height: 1.4;
+}
+.navBlockTitle {
+  padding: 8px 12px;
 }
