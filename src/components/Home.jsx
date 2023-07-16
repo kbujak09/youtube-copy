@@ -11,13 +11,13 @@ const Home = () => {
 
   const fetchData = async () => {
     const fetched = await (
-      await fetch('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=30&regionCode=US&key=AIzaSyDY9WP-Y6gB_aWmJvWQBouNCR8d-aCyV50')).json();
+      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=30&regionCode=US&key=${process.env.REACT_APP_API_KEY}`)).json();
     const avatarsId = [];
     for (let data of fetched.items) {
       avatarsId.push(`id=${data.snippet.channelId}&`); 
     }
     const avatars = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&${avatarsId.join('')}key=AIzaSyDY9WP-Y6gB_aWmJvWQBouNCR8d-aCyV50`)).json()
+      await fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&${avatarsId.join('')}key=${process.env.REACT_APP_API_KEY}`)).json()
     setAvatars(avatars.items);
     setData(fetched.items);
     setDataSource(fetched.items);
