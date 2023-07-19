@@ -3,7 +3,7 @@ import microphone from '../assets/searchMicrophone.svg';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+const SearchBar = ({setSearchResult}) => {
 
   const [value, setValue] = useState('');
   const navigate = useNavigate();
@@ -12,8 +12,13 @@ const SearchBar = () => {
     setValue(e.target.value)
   }
 
-  const search = () => {
-    navigate(`'/results${value}'`);
+  const search = (e) => {
+    e.preventDefault();
+    if (value === '') {
+      return;
+    } 
+    setSearchResult(value); 
+    navigate(`/results/${value}`);
   }
 
   return (

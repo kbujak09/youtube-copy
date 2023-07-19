@@ -1,14 +1,13 @@
 import Logo from './Logo';
 import SearchBar from './SearchBar';
-import LoggedIn from './LoggedIn';
 import LoggedOut from './LoggedOut';  
 
-const Header = ({logged}) => {
+const Header = ({setSearchResult}) => {
   return (
     <div id='header'>
       <Logo />
-      <SearchBar />
-      { logged ? <LoggedIn/> : <LoggedOut/> }
+      <SearchBar setSearchResult={setSearchResult}/>
+      <LoggedOut/> 
     </div>
   )
 }

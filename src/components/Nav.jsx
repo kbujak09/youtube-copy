@@ -1,11 +1,19 @@
 import Element from './NavElement';
 import SignIn from './SignIn';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+
+  const navigate = useNavigate();
+
+  const changeLocation = (location) => {
+    navigate(location);
+  }
+
   return (
     <div id='nav'>
       <div className='navBlock'>
-        <Element name='Home' src='Home'/>
+        <Element changeLocation={changeLocation} name='Home' src='Home'/>
         <Element name='Shorts' src='60fps'/>
         <Element name='Subscriptions' src='Subscriptions'/>
       </div>
