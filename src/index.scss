@@ -4,6 +4,7 @@ body,html {
   height: 100vh;
   scroll-behavior: smooth;
   position: relative;
+  box-sizing: border-box;
 }
 #root {
   height: 100%;
@@ -164,7 +165,7 @@ $searchBorder: rgb(212,212,212);
   box-sizing: border-box;
   position: fixed;
   margin-top: 56px;
-  overflow: scroll;
+  overflow: auto;
   padding-bottom: 96px;
 }
 .material-symbols-outlined {
@@ -291,46 +292,73 @@ hr {
   height: 100px;
   background-color: white;
 }
-#results {
-  padding: 56px 0 0 240px;
+#resultsOuter {
+  display: flex;
+  width: 100%;
+  justify-content: center;  
+  padding: 106px 0 0 240px;
+}
+#resultsInner {
+  width: 1096px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 .searchMinature {
-  display: grid;
-  width: 400px;
-  height: 200px;
-  border: 1px solid black;
+  display: flex;
+  gap: 12px;
+  font-family: $roboto;
+}
+.searchMinatureData {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  flex: 0;
 }
 .searchMinatureImageDiv {
-  
+  width: 360px;
+  height: 202px;
 }
 .searchMinatureImage {
-  
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(35, 35, 35, 0.343);
 }
 .searchMinatureTitle {
-  
+  font-weight: 400;
+  font-size: 20px;
 }
 .searchMinatureInfo {
-  
-}
-.searchMinatureViews {
-  
-}
-.searchMinatureDate {
-  
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: gray;
+  font-size: 12px;
 }
 .searchMinatureAvatarDiv {
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .searchMinatureAvatar {
-  
+  width: 24px;
+  border-radius: 50%;
+  border: 1px solid rgb(195, 195, 195);
 }
 .searchMinatureChannel {
-  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: gray;
+  font-size: 12px;
+  padding: 8px 0;
 }
 .searchMinatureDescription {
-  
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 12px;
+  color: gray;
 }

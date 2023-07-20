@@ -3,30 +3,48 @@ import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const convertDate = (date) => {
+  const inMinutes = Math.floor((new Date() - new Date(date))/60000);
+  const inHours = Math.floor((new Date() - new Date(date))/3600000);
   const inDays = Math.floor((new Date() - new Date(date))/(24*3600*1000));
-  if (inDays === 1) {
+  const inWeeks = Math.floor((new Date() - new Date(date))/(24*3600*1000*7));
+  const inMonths = (inDays / 30.437).toFixed(0)
+  const inYears = (inDays / 365.25).toFixed(0)
+
+  if (inMinutes === 1) {
+    return `${inMinutes} minute ago`;
+  }
+  else if (inMinutes < 60) {
+    return `${inMinutes} minutes ago`;
+  }
+  else if (inHours === 1) {
+    return `${inHours} hour ago`;
+  }
+  else if (inHours < 24) {
+    return `${inHours} hours ago`;
+  }
+  else if (inDays === 1) {
     return `${inDays} day ago`;
   }
   else if (inDays < 7) {
     return `${inDays} days ago`;
   }
   else if (inDays < 30 && inDays / 7 === 1) {
-    return `${inDays / 7} week ago`;
+    return `${inWeeks} week ago`;
   }
   else if (inDays < 30) {
-    return `${inDays / 7} weeks ago`;
+    return `${inWeeks} weeks ago`;
   }
   else if (inDays < 365 && inDays / 30 === 1) {
-    return `${inDays / 30} month ago`;
+    return `${inMonths} month ago`;
   }
   else if (inDays < 365) {
-    return `${inDays / 30} months ago`;
+    return `${inMonths} months ago`;
   }
   else if (inDays / 365 === 1) {
-    return `${inDays / 365} year ago`;
+    return `${inYears} year ago`;
   }
   else {
-    return `${inDays / 365} years ago`;
+    return `${inYears} years ago`;
   }
 }
 
@@ -56,31 +74,9 @@ const getAvatar = (channelTitle, channels) => {
   }
 }
 
-const Home = () => {
+const Home = ({data, dataSource, avatars, setData}) => {
 
-  const [avatars, setAvatars] = useState();
-  const [dataSource, setDataSource] = useState();
-  const [data, setData] = useState();
   const [more, setMore] = useState(true);
-
-  const fetchData = async () => {
-    const fetched = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=US&key=${process.env.REACT_APP_API_KEY}`)).json();
-    const avatarsId = [];
-    for (let data of fetched.items) {
-      avatarsId.push(`id=${data.snippet.channelId}&`); 
-    }
-    const avatars = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&${avatarsId.join('')}key=${process.env.REACT_APP_API_KEY}`)).json()
-    setAvatars(avatars.items);
-    setData(fetched.items.concat(fetched.items));
-    setDataSource(fetched.items);
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
 
   const addMoreData = () => {
     if (data.length < 200) {
