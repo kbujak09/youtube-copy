@@ -1,7 +1,8 @@
 import Header from './components/Header';
-import Home from './components/Home';
+import HomePage from './components/HomePage';
 import Nav from './components/Nav';
 import SearchPage from './components/SearchPage';
+import VideoPage from './components/VideoPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -11,6 +12,7 @@ const App = () => {
   const [avatars, setAvatars] = useState();
   const [dataSource, setDataSource] = useState();
   const [data, setData] = useState();
+  const [videoId, setVideoId] = useState();
 
   const fetchData = async () => {
     const fetched = await (
@@ -28,7 +30,6 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-    console.log('pablo')
   }, []);
 
   return (
@@ -36,10 +37,14 @@ const App = () => {
       <div className="App">
         <Header setSearchResult={setSearchResult}/>
         <div id="content">
-          <Nav/>
           <Routes>
-            <Route path='/' element={<Home data={data} dataSource={dataSource} avatars={avatars} setData={setData}/>}/>
-            <Route path='/results/:id' element={<SearchPage searchResult={searchResult}/>}/>
+            <Route path='/' element={<Nav/>}/>
+            <Route path='/results/:id' element={<Nav/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/' element={<HomePage data={data} setVideoId={setVideoId} dataSource={dataSource} avatars={avatars} setData={setData}/>}/>
+            <Route path='/results/:id' element={<SearchPage setVideoId={setVideoId} searchResult={searchResult}/>}/>
+            <Route path='/watch/:id' element={<VideoPage videoId={videoId}/>}/>
           </Routes>
         </div>
       </div>

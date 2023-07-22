@@ -1,4 +1,4 @@
-import icon from '../assets/loggedOutIcon.svg';
+import icon from '../../assets/loggedOutIcon.svg';
 
 const SignIn = () => {
   return (

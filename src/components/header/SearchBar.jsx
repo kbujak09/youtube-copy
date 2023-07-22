@@ -1,5 +1,5 @@
-import button from '../assets/searchButton.svg';
-import microphone from '../assets/searchMicrophone.svg';
+import button from '../../assets/searchButton.svg';
+import microphone from '../../assets/searchMicrophone.svg';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 

@@ -1,6 +1,7 @@
-const SearchMinature = ({image, title, views, channelName, date, description, avatar}) => {
+const SearchMinature = ({image, title, views, channelName, date, description, avatar, onClick}) => {
+
   return (
-    <div className='searchMinature'>
+    <div onClick={onClick} className='searchMinature'>
       <div className="searchMinatureImageDiv"><img className="searchMinatureImage" src={image} alt={title} /></div>
       <div className='searchMinatureData'>
         <div className="searchMinatureTitle">{title}</div>

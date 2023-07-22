@@ -1,5 +1,5 @@
 import Element from './NavElement';
-import SignIn from './SignIn';
+import SignIn from './header/SignIn';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {

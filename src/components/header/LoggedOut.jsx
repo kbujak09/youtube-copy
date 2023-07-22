@@ -1,4 +1,4 @@
-import info from '../assets/info.svg';
+import info from '../../assets/info.svg';
 import SignIn from './SignIn';
 
 const LoggedOut = () => {

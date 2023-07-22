@@ -1,6 +1,7 @@
 import Minature from './Minature';
-import { useState, useEffect } from 'react'; 
+import { useState } from 'react'; 
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useNavigate } from 'react-router-dom';
 
 const convertDate = (date) => {
   const inMinutes = Math.floor((new Date() - new Date(date))/60000);
@@ -28,19 +29,19 @@ const convertDate = (date) => {
   else if (inDays < 7) {
     return `${inDays} days ago`;
   }
-  else if (inDays < 30 && inDays / 7 === 1) {
+  else if (inDays < 30 && inWeeks === 1) {
     return `${inWeeks} week ago`;
   }
   else if (inDays < 30) {
     return `${inWeeks} weeks ago`;
   }
-  else if (inDays < 365 && inDays / 30 === 1) {
+  else if (inDays < 365 && inMonths === 1) {
     return `${inMonths} month ago`;
   }
   else if (inDays < 365) {
     return `${inMonths} months ago`;
   }
-  else if (inDays / 365 === 1) {
+  else if (inYears === 1) {
     return `${inYears} year ago`;
   }
   else {
@@ -74,9 +75,11 @@ const getAvatar = (channelTitle, channels) => {
   }
 }
 
-const Home = ({data, dataSource, avatars, setData}) => {
+
+const HomePage = ({data, dataSource, avatars, setData, setVideoId}) => {
 
   const [more, setMore] = useState(true);
+  const navigate = useNavigate();
 
   const addMoreData = () => {
     if (data.length < 200) {
@@ -90,14 +93,17 @@ const Home = ({data, dataSource, avatars, setData}) => {
   }
 
   return (
-    <div id="homepage">
+    <div id="homepage">                                 
       {!data ? <></> : <InfiniteScroll 
       dataLength={data.length} 
       next={addMoreData} 
       hasMore={more} 
       loader={<div className='loadingDiv'></div>}>{
         data.map((item) => {
-          return <Minature 
+          return <Minature onClick={() => {
+            setVideoId(item.id);
+            navigate(`/watch/${item.id}`);
+          }} 
           date={convertDate(item.snippet.publishedAt.slice(0,10))} 
           channelName={item.snippet.channelTitle} 
           key={item.snippet.tile} 
@@ -112,4 +118,4 @@ const Home = ({data, dataSource, avatars, setData}) => {
 }
 
 export { getAvatar, convertDate, convertViews }
-export default Home;
+export default HomePage;

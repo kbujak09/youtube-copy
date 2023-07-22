@@ -1,6 +1,6 @@
-import Logo from './Logo';
-import SearchBar from './SearchBar';
-import LoggedOut from './LoggedOut';  
+import Logo from './header/Logo';
+import SearchBar from './header/SearchBar';
+import LoggedOut from './header/LoggedOut';  
 
 const Header = ({setSearchResult}) => {
   return (
