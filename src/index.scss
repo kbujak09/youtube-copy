@@ -379,6 +379,7 @@ hr {
   font-family: $roboto;
   width: 100%;
   display: flex;
+  gap: 24px;
 }
 .videoContainer {
   width: 1280px;
@@ -626,4 +627,45 @@ hr {
 }
 .comments > .infinite-scroll-component__outerdiv {
   padding: 0;
+}
+#recommended > .infinite-scroll-component__outerdiv > .infinite-scroll-component {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+#recommended > .infinite-scroll-component__outerdiv {
+  padding: 0;
+  margin: 0;
+}
+.recMinature {
+  display: flex;
+  width: 400px;
+  gap: 12px;
+  font-size: 12px;
+  font-family: $roboto;
+}
+.recMinatureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px 0;
+}
+.recMinatureImage {
+  width: 170px;
+  border-radius: 12px;
+}
+.recMinatureSegment {
+  display: flex;
+  gap: 12px;
+  color: gray;
+}
+.recMinatureTitle {
+  font-size: 13px;
+  font-weight: 400;
+  padding-bottom: 2px;
+}
+.recMinatureChannel {
+  color: gray;
 }

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useNavigate } from 'react-router-dom';
 
-const convertDate = (date) => {
+const convertDate = (date) => { 
   const inMinutes = Math.floor((new Date() - new Date(date))/60000);
   const inHours = Math.floor((new Date() - new Date(date))/3600000);
   const inDays = Math.floor((new Date() - new Date(date))/(24*3600*1000));
