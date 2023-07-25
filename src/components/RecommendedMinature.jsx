@@ -1,6 +1,6 @@
-const RecommendedMinature = ({image, title, channel, views, date}) => {
+const RecommendedMinature = ({image, title, channel, views, date, onClick}) => {
   return (
-    <div className="recMinature">
+    <div onClick={onClick} className="recMinature">
       <div className="recMinatureImageDiv"><img src={image} alt={title} className="recMinatureImage" /></div>
       <div className="recMinatureInfo">
         <div className="recMinatureTitle">{title}</div>

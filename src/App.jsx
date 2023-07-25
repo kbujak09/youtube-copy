@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchData = async () => {
     const fetched = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=US&key=${process.env.REACT_APP_API_KEY}`)).json();
+      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults=24&regionCode=US&key=${process.env.REACT_APP_API_KEY}`)).json();
     const avatarsId = [];
     for (let data of fetched.items) {
       avatarsId.push(`id=${data.snippet.channelId}&`); 
@@ -44,7 +44,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<HomePage data={data} setVideoId={setVideoId} dataSource={dataSource} avatars={avatars} setData={setData}/>}/>
             <Route path='/results/:id' element={<SearchPage setVideoId={setVideoId} searchResult={searchResult}/>}/>
-            <Route path='/watch/:id' element={<VideoPage videoId={videoId}/>}/>
+            <Route path='/watch/:id' element={<VideoPage setVideoId={setVideoId} videoId={videoId}/>}/>
           </Routes>
         </div>
       </div>
