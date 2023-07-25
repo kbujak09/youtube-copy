@@ -38,11 +38,11 @@ const App = () => {
         <Header setSearchResult={setSearchResult}/>
         <div id="content">
           <Routes>
-            <Route path='/' element={<Nav/>}/>
+            <Route path='/youtube-copy' element={<Nav/>}/>
             <Route path='/results/:id' element={<Nav/>}/>
           </Routes>
           <Routes>
-            <Route path='/' element={<HomePage data={data} setVideoId={setVideoId} dataSource={dataSource} avatars={avatars} setData={setData}/>}/>
+            <Route path='/youtube-copy' element={<HomePage data={data} setVideoId={setVideoId} dataSource={dataSource} avatars={avatars} setData={setData}/>}/>
             <Route path='/results/:id' element={<SearchPage setVideoId={setVideoId} searchResult={searchResult}/>}/>
             <Route path='/watch/:id' element={<VideoPage setVideoId={setVideoId} videoId={videoId}/>}/>
           </Routes>

@@ -8,7 +8,7 @@ const Logo = () => {
   return (
     <div className='logo'>
       <div className='menuButtonDiv'><i className='material-symbols-outlined menu'>menu</i></div>
-      <div className='logoImageDiv' onClick={() => navigate('/')}><img className='logoImage' src={logo} alt='logo'/></div>
+      <div className='logoImageDiv' onClick={() => navigate('/youtube-copy')}><img className='logoImage' src={logo} alt='logo'/></div>
     </div>
   )
 }
