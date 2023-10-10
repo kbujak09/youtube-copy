@@ -18,6 +18,7 @@ const Recommended = ({data, stats, setVideoId, videoId}) => {
     <>
       {
         data.map((item) => {
+          console.log(item);
           return <RecommendedMinature onClick={
             () => {
               setVideoId(item.id.videoId);

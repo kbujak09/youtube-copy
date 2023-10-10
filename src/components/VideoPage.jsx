@@ -29,19 +29,21 @@ const VideoPage = ({setVideoId, videoId}) => {
     setCreator(channel);
   
     const rec = await (
-      await fetch (`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&relatedToVideoId=${getId()}&type=video&key=${process.env.REACT_APP_API_KEY}`)).json();
+      await fetch (`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=8&key=${process.env.REACT_APP_API_KEY}`)).json();
     const recIds = [];
+    if (!rec.items) {
+      return;
+    }
     for (let item of rec.items) {
-      recIds.push(item.id.videoId);
+      recIds.push(item.id);
     }
     const recStats = await (   
-      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&id=${recIds.join(',')}&key=${process.env.REACT_APP_API_KEY}`)).json();
+      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${recIds.join('&id=')}&key=${process.env.REACT_APP_API_KEY}`)).json();
     let i = 0;
     const recAll = [];
     for (let item of rec.items) {
       recAll.push(Object.assign(item, {stats: recStats.items[i++]}))
     }
-    console.log(recAll)
     setRecommended(recAll);
   }
 
