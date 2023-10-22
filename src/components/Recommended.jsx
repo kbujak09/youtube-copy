@@ -4,6 +4,8 @@ import { useReducer, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Recommended = ({data, stats, setVideoId, videoId}) => {
+
+  console.log(data)
   
 
   const [ counter, setCounter ] = useState(0);
@@ -21,8 +23,8 @@ const Recommended = ({data, stats, setVideoId, videoId}) => {
           console.log(item);
           return <RecommendedMinature onClick={
             () => {
-              setVideoId(item.id.videoId);
-              navigate(`/watch/${item.id.videoId}`);
+              setVideoId(item.id);
+              navigate(`/watch/${item.id}`);
             }
           } image={item.snippet.thumbnails.medium.url} title={item.snippet.title} channel={item.snippet.channelTitle}
           date={convertDate(item.stats.snippet.publishedAt.slice(0,10))} views={convertViews(item.stats.statistics.viewCount) + ' views'}/>
