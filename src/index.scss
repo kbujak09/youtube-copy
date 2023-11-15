@@ -227,6 +227,7 @@ hr {
 #homepage {
   background-color: white;
   margin: 56px 0 0 240px;
+  width: 100%;
 }
 .infinite-scroll-component__outerdiv {
   background-color: white;
@@ -242,7 +243,7 @@ hr {
   grid-auto-rows: min-content ;
   justify-items: center;
   gap: 40px 16px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .minature {
   display: grid;
