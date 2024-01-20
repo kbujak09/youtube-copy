@@ -10,9 +10,9 @@
 
 * Search
   
-![](./src/assets/readme/search.png)
+![](./src/assets/readme/search.jpg)
 
 * Video Player with recomendations and comments
   
-![](./src/assets/readme/video.png)
+![](./src/assets/readme/video.jpg)
 
