@@ -32,27 +32,28 @@ const SearchPage = ({searchResult, setVideoId}) => {
     }
   }
 
+  const fetchData = async() => {
+    const data = await (
+    await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=${searchResult}&key=${process.env.REACT_APP_API_KEY}`)).json();
+    setData(data.items);
+    setDataSource(data.items);
+  const avatarsId = [];
+  for (let item of data.items) {
+    avatarsId.push(`id=${item.snippet.channelId}&`); 
+  }
+  const avatars = await (
+    await fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&${avatarsId.join('')}key=${process.env.REACT_APP_API_KEY}`)).json();
+    setAvatars(avatars.items);
+  const ids = [];
+  for (let item of data.items) {
+    ids.push(item.id.videoId);
+  } 
+  const stats = await (
+    await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&id=${ids.join(',')}&key=${process.env.REACT_APP_API_KEY}`)).json();
+  setStats(stats.items);
+  }
+
   useEffect(() => {
-    const fetchData = async() => {
-      const data = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=${searchResult}&key=${process.env.REACT_APP_API_KEY}`)).json();
-      setData(data.items);
-      setDataSource(data.items);
-    const avatarsId = [];
-    for (let item of data.items) {
-      avatarsId.push(`id=${item.snippet.channelId}&`); 
-    }
-    const avatars = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&${avatarsId.join('')}key=${process.env.REACT_APP_API_KEY}`)).json();
-      setAvatars(avatars.items);
-    const ids = [];
-    for (let item of data.items) {
-      ids.push(item.id.videoId);
-    } 
-    const stats = await (
-      await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&id=${ids.join(',')}&key=${process.env.REACT_APP_API_KEY}`)).json();
-    setStats(stats.items);
-    }
       fetchData(searchResult);
   },[searchResult])
 
