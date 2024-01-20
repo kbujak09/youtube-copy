@@ -6,8 +6,13 @@
 
 * Homepage
 
-![](./src/assets/logo.png)
+![](./src/assets/readme/homepage.jpg)
 
+* Search
+  
+![](./src/assets/readme/search.png)
 
-
+* Video Player with recomendations and comments
+  
+![](./src/assets/readme/video.png)
 
