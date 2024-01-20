@@ -4,10 +4,7 @@
 
 ## Table of Contents
 
-[Introduction](#Youtube Copy)
-[Homepage](###Homepage with infinite scroll)
-[Search](###Search)
-[Video player](###Video player with recomendations and comments)
+### Introduction<a name="Youtube Copy"></a>
 
 ## Features
 
