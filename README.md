@@ -16,6 +16,8 @@
 <a name="features"></a>
 ## Features
 
+<hr/>
+
 <a name="homepage"></a>
 ### Homepage with infinite scroll
 
@@ -28,8 +30,12 @@
   
 ![](./src/assets/readme/search.jpg)
 
+<hr/>
+
 <a name="video"></a>
 ### Video player with recomendations and comments
  
 ![](./src/assets/readme/video.jpg)
+
+<hr/>
 
