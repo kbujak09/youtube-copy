@@ -1,8 +1,3 @@
-<a name="title"></a>
-# Youtube Copy
-
- A desktop youtube layout made in React. 
-
 ## Table of Contents
 
 1. [ Introduction ](#title)
@@ -10,6 +5,11 @@
     1. [ Homepage ](#hompage)
     2. [ Search ](#search)
     3. [ Video player ](#video) 
+
+<a name="title"></a>
+# Youtube Copy
+
+ A desktop youtube layout made in React. 
 
 ### Introduction<a name="Youtube Copy"></a>
 
