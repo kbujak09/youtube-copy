@@ -21,6 +21,8 @@
 
 ![](./src/assets/readme/homepage.jpg)
 
+<hr/>
+
 <a name="search"></a>
 ### Search
   
